@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Aluno {
+  id       String @id @default(uuid())
+  name     String
+  phone    String @unique
+  password String
+
+  @@map("alunos")
+  AlunoEncontro AlunoEncontro[]
+}
+
+model Enconto {
+  id   String @id @default(uuid())
+  date String
+
+  EncontroAssunto EncontroAssunto[]
+  @@map("encontros")
+  AlunoEncontro AlunoEncontro[]
+}
+
+model Assunto {
+  id     String @id @default(uuid())
+  name   String @unique @map("disciplina")
+  degree String
+  time   Int
+
+  EncontroAssunto EncontroAssunto[]
+  @@map("assuntos")
+}
+
+model EncontroAssunto {
+  id          String  @id @default(uuid())
+  encontro_id String
+  encontro    Enconto @relation(fields: [encontro_id], references: [id])
+  assunto_id  String
+  assunto     Assunto @relation(fields: [assunto_id], references: [id])
+
+  @@map("encontro_assuntos")
+}
+
+model AlunoEncontro {
+  id          String  @id @default(uuid())
+  aluno_id    String
+  aluno       Aluno   @relation(fields: [aluno_id], references: [id])
+  encontro_id String
+  encontro    Enconto @relation(fields: [encontro_id], references: [id])
+
+  @@map("aluno_encontros")
+}
