@@ -7,7 +7,8 @@ export class CreateEncontroController{
 
         const encontro = await prisma.enconto.create({
             data:{
-                date
+                date,
+                
             }
         })
         return response.json(encontro)
