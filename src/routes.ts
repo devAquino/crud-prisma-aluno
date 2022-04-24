@@ -84,8 +84,8 @@ router.post('/login', autenticarAluno.handle);
 //Rotas do model aluno
 router.post('/aluno/cadastrar', cadastrarAluno.handle);
 router.post('/aluno-with-encontro/cadastrar', cadastrarAlunoWithEncontro.handle);
-router.get('/alunos', ensureAuthentication,listarAluno.handle);
-router.put('/aluno/update/:id', atualizarAluno.handle);
+router.get('/alunos', listarAluno.handle);
+router.put('/aluno/update/:id',ensureAuthentication, atualizarAluno.handle);
 router.put('/alunoWithEncontro/update/:id', atualizarAluno.handle);
 router.delete('/aluno/delete/:id', excluirAluno.handle);
 

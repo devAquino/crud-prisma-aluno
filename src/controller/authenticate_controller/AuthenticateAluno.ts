@@ -28,7 +28,7 @@ export class AuthenticateAluno{
             throw new Error("Password incorreto.")
         }
         const chave = process.env.SECRET;
-        const token = sign({}, chave as string,{subject:alunoExist.id, expiresIn:60});
+        const token = sign({}, chave as string,{subject:alunoExist.id, expiresIn:3600});
 
         return {token};
     }

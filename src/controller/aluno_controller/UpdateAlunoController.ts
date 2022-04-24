@@ -15,12 +15,8 @@ export class UpdateAlunoController{
             data:{
                 name,
                 phone,
-                password:passowordHash
+                password
             },
-            // select:{
-            //     id:true,
-            //     name:true,
-            // }
         
         });
         

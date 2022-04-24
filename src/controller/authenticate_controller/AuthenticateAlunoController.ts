@@ -5,7 +5,7 @@ import { AuthenticateAluno } from './AuthenticateAluno';
 
 export class AuthenticateAlunoController{
     async handle(request:Request, response:Response){
-        const {phone, password} = request.body;
+        const {name, phone, password} = request.body;
 
         const authenticateAluno = new AuthenticateAluno();
 
