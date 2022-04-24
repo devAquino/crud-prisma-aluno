@@ -1,12 +1,33 @@
 ### Adicionando os relacionamentos.
 
-1. Para cadastrar alunos
+1. Alunos
 
-    * Acessar a rota: router.post('/aluno/cadastrar', cadastrarAluno.handle); 
-    * Utilizando essa rota só é possível cadastrar o aluno, o relacionamento será adicionado posteriormente.
-    * O campo phone no model Aluno é um atributo único,então é possível cadastrar um aluno com o mesmo nome, mas não com o mesmo phone. 
+    * Para cadastrar alunos acesse a rota: router.post('/aluno/cadastrar', cadastrarAluno.handle); 
+       * Utilizando essa rota só é possível cadastrar o aluno, o relacionamento será adicionado posteriormente.
+       * O campo phone no model Aluno é um atributo único,então é possível cadastrar um aluno com o mesmo nome, mas não com o mesmo phone. 
+    * Para atualizar um aluno utilize a rota router.put('/aluno/update/:id',ensureAuthentication, atualizarAluno.handle);
+       * Bastar inserir o id do aluno.
+       * É cecessário está autenticado e autorizado.
+    * Para excluir um aluno utilize a rota router.delete('/aluno/delete/:id', excluirAluno.handle);
+       * Basta inserir o id do aluno que deseja excluir.
+    * Para listar alunos utilize a rota router.get('/alunos', listarAluno.handle);
 
-2. Para adicionar o relacionamento entre a entidade Encontro e Assunto
+2. Encontros 
+   
+   * Para cadastrar um encontro utilize a rota router.post('/encontro/cadastrar', cadasrarEncontro.handle);
+   * Para atualizar um encontro utilize a rota router.put('/encontro/update/:id', updateEncontro.handle);
+   * Para excluir um encontro utilize a rota router.delete('/encontro/delete/:id', deleteEncontro.handle);
+   * Para listar um encontro utilize a rota router.get('/encontros', listarEncontro.handle);
+   
+3. Assuntos
+
+   * Para cadastrar um assunto utilize a rota router.post('/assunto/cadastrar', cadasrarAssunto.handle);
+   * Para atualizar um assunto utilize a rota router.put('/assunto/update/:id', updateAssunto.handle);
+   * Para excluir um assunto utilize a rota router.delete('/assunto/delete/:id', deleteAssunto.handle);
+   * Para listar um assunto utilize a rota router.get('/assunto', listarSssunto.handle);
+
+   
+3. Para adicionar o relacionamento entre a entidade Encontro e Assunto
 
     * Acessar a rota: router.post('/encontro-assunto/cadastrar', encontroAssunto.handle);
     * Inserir o id do encontro e o id do assunto
@@ -15,7 +36,7 @@
     será possível ver o encontro com seus assuntos.
     
 
-3. Para adicionar o relacionamento entre a entidade Aluno e Encontro
+4. Para adicionar o relacionamento entre a entidade Aluno e Encontro
 
     * Acessar a rota: router.post('/aluno-encontro/cadastrar', alunoEncontro.handle);
     * Inserir o id do aluno e o id do encontro.
@@ -23,7 +44,7 @@
     * Uma vez que o relacionamento tenha sido feito, utilizando a rota router.get('/alunos', listarAluno.handle)\n
     será possível ver os alunos e seus respectivos encontros.
 
-4. Para cadastrar aluno e atribuir um encontro a ele.
+5. Para cadastrar aluno e atribuir um encontro a ele.
    
    * Acessa a rota router.post('/aluno-with-encontro/cadastrar', cadastrarAlunoWithEncontro.handle);
    * Incluir o id do encontro, assim ao listar os alunos, esse já terá o encontro atribuido.
