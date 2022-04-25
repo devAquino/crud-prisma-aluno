@@ -1,3 +1,11 @@
+### Configurando o arquivo .env
+* Após instalar a dependência do prisma, será criado um arquivo .env, nele contém a variável DATABASE_URL, que é a variável de configuração do
+banco de dados, como utilizei o PostgreSQL segue as seguintes configurações:
+DATABASE_URL="postgresql://**usuario_postgres**:**sua_senha**@localhost:5432/**nome_do_banco_de_dados**?schema=public"  
+Criei também a variável SECRET que contem a chave de configuraçõ do jwt, então faça como se segue.  
+SECRET=**72896d19-fa3a-4d7f-8d56-3ab6b3809627**
+
+
 ### Adicionando os relacionamentos.
 
 1. Alunos
